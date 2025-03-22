@@ -6,22 +6,21 @@ public class ThreadArrayDemo {
         Random rand = new Random();
         int[] array = new int[10];
         for (int i = 0; i < 10; i++) {
-            array[i] = rand.nextInt(100); // Genera numeri casuali da 0 a 99
+            array[i] = rand.nextInt(100)+1; // Genera numeri casuali da 1 a 100
         }
         
         System.out.println("Array generato: " + Arrays.toString(array));
         
-        OddCounter counterThread = new OddCounter(array);
-        ArraySorter sorterThread = new ArraySorter(array);
+        ConteggioDispari conteggioThread = new ConteggioDispari(array);
+        OrdinaArray ordinaThread = new OrdinaArray(array);
         
-        counterThread.start();
+        conteggioThread.start();
         try {
-            counterThread.join(); // Attende che il conteggio finisca prima di ordinare
+            conteggioThread.join(); // Attende che il conteggio finisca prima di ordinare
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        
-        sorterThread.start();
+        ordinaThread.start();
     }
 }
 
