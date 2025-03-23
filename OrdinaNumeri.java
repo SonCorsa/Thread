@@ -16,3 +16,10 @@ class ConteggioDispari extends Thread {
         System.out.println("Numero di elementi dispari: " + count);
     }
 }
+
+
+
+
+
+
+
